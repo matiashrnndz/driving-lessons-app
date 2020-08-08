@@ -1,0 +1,16 @@
+
+.main {
+    position: absolute;
+    left:270px; top:92px; right:0px; bottom:0px;
+    background-color: #f1f1f1;
+}
+    
+* {
+    box-sizing: border-box;
+}
+
+.page {
+    padding-top: 92px; padding-right: 92px; padding-bottom: 92px; padding-left: 92px;
+    display: block;
+    margin-left: auto; margin-right: auto;
+}
