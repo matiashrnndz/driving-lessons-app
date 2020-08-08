@@ -17,10 +17,9 @@
         <div class="main">
             <div class="page">
                 <?php
-                    include('./blank.html');
+                    include('use-cases/authentication/authentication.html');
                 ?>
             </div>
         </div>
-        
     </body>
 </html>
