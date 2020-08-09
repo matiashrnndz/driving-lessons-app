@@ -17,7 +17,7 @@
         <div class="main">
             <div class="page">
                 <?php
-                    include('use-cases/authentication/authentication.html');
+                    include('features/authentication/authentication.html');
                 ?>
             </div>
         </div>

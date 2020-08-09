@@ -8,30 +8,30 @@
         <link rel="stylesheet" type="text/css" href="styles/button.css">
         <link rel="stylesheet" type="text/css" href="styles/container.css">
         <link rel="stylesheet" type="text/css" href="styles/forms.css">
-        <link rel="stylesheet" type="text/css" href="use-cases/authentication/authentication.css">
-        <script type="text/javascript" src="use-cases/authentication/authentication.js"></script>
+        <link rel="stylesheet" type="text/css" href="features/authentication/authentication.css">
+        <script type="text/javascript" src="features/authentication/authentication.js"></script>
     </head>
     <body>
         <div>
             <div class="container" id="container">
                 <div class="form-container sign-up-container">
-                    <form action="#">
+                    <form action="features/authentication/signup.php" method="POST">
                         <h1>Sign up</h1>
-                        <input type="text" placeholder="Name" />
-                        <input type="text" placeholder="Lastname" />
-                        <input type="text" placeholder="Document Number" />
-                        <input type="text" placeholder="Address" />
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
-                        <input type="date" name="bday">
+                        <input type="text" name="signup_name" placeholder="Name" />
+                        <input type="text" name="signup_lastname" placeholder="Lastname" />
+                        <input type="text" name="signup_document" placeholder="Document Number" />
+                        <input type="text" name="signup_address" placeholder="Address" />
+                        <input type="email" name="signup_email" placeholder="Email" />
+                        <input type="password" name="signup_password" placeholder="Password" />
+                        <input type="date" name="signup_birthday">
                         <button>Sign Up</button>
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
-                    <form action="#">
+                    <form action="features/authentication/signin.php" method="POST">
                         <h1>Sign in</h1>
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
+                        <input type="email" name="signin_email" placeholder="Email" />
+                        <input type="password" name="signin_password" placeholder="Password" />
                         <button>Sign In</button>
                     </form>
                 </div>
