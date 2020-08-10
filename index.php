@@ -15,9 +15,11 @@
         ?>
         <div class="main">
             <div class="page" id="page">
-                <?php
-                    include('blank.html');
-                ?>
+                <div class="page-content" id="page-content">
+                    <?php
+                        //include('blank.html');
+                    ?>
+                </div>
             </div>
         </div>
     </body>

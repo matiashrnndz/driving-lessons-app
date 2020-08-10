@@ -59,5 +59,9 @@ function validateBirthday($birthday) {
     if ($birthday == null) {
         throw new SignupException("You must enter a birthday.");
     }
-    // TODO: Validate more than 18 years
+    $birthday_aux = new DateTime($birthday);
+    $birthday_aux->add(new DateInterval("P18Y"));
+    if($birthday_aux >= new DateTime()) {
+        throw new SignupException("You must be 18 years or older.");
+    }
 }
