@@ -1,8 +1,11 @@
 <?php
 
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/data-access/user-dao.php');
+
 $name = $lastname = $document = $address = $email = $password = $birthday = "";
         
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
     $name = manage_input($_POST['signup_name']);
     $lastname = manage_input($_POST['signup_lastname']);
     $document = manage_input($_POST['signup_document']);
@@ -11,9 +14,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = manage_password($_POST['signup_password']);
     $birthday = manage_input($_POST['signup_birthday']);
     
+    $userData = array(
+        "name" => $name,
+        "lastname" => $lastname,
+        "document" => $document,
+        "address" => $address,
+        "email" => $email,
+        "password" => $password,
+        "birthday" => $birthday
+    );
+    
     if (!validate($name, $lastname, $document, $address, $email, $password, $birthday)) {
         
     } else {
+        add_user($userData);
         goToIndex();
     }
 }

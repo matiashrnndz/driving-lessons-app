@@ -8,15 +8,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     //TODO: Get user by email
     $user = array(
-        array("name", 'Matias', "string"),
-        array("lastname", "Hernandez", "string"),
-        array("document", "4.584.147-5", "string"),
-        array("address", "Calle", "string"),
-        array("email", $email, "int"),
-        array("password", $password, "string"),
-        array("birthday", "25-09-1991", "string")
+        "name" => 'Matias',
+        "lastname" => "Hernandez",
+        "document" => "4.584.147-5",
+        "address" => "Calle",
+        "email" => $email,
+        "password" => $password,
+        "birthday" => "25-09-1991"
     );
-
+    
     createSession($user);
     goToIndex();
 }

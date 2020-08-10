@@ -2,7 +2,7 @@
 /* The sidebar menu */
 .sidenav {
     float: left;
-    width: 270px;
+    width: 230px;
     position: fixed; /* Stay in place on scroll */
     top: 92px; left: 0; bottom: 0;
     background-color: #333; /* Black */
@@ -14,7 +14,7 @@
 /* The navigation menu links */
 .sidenav a {
     padding: 6px 8px 6px 16px;
-    font-size: 25px;
+    font-size: 15px;
     color: #818181;
     display: block;
     letter-spacing: 1px;
