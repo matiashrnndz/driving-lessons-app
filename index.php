@@ -11,13 +11,13 @@
     </head>
     <body>
         <?php
-            include('layout/header.html');
-            include('layout/sidenav.html');
+            include('layout/header/header.html');
+            include('layout/sidenav/sidenav.html');
         ?>
         <div class="main">
-            <div class="page">
+            <div class="page" id="page">
                 <?php
-                    include('features/authentication/authentication.html');
+                    include('blank.html');
                 ?>
             </div>
         </div>

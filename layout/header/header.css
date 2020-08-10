@@ -44,6 +44,7 @@
 .header a:hover {
     outline: none;
     font-weight: bold;
+    cursor: pointer;
 }
 
 /* Style the active/current link*/

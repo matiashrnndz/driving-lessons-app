@@ -2,15 +2,14 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/configs/configuration.php');
 
-function add_user($userData) {
-    $db_connection = get_connection();
+function addUser($userData) {
+    $db_connection = getConnection();
     $db_connection->conectar();
     
-    $date = $userData['birthday'] . str_replace("/", "-");
     $params = array(
         array("name", $userData['name'], "string"),
         array("lastname", $userData['lastname'], "string"),
-        array("birthday", $date, "string"),
+        array("birthday", $userData['birthday'], "string"),
         array("address", $userData['address'], "string"),
         array("document", $userData['document'], "string"),
         array("email", $userData['email'], "string"),
@@ -25,4 +24,22 @@ function add_user($userData) {
     
     $db_connection->consulta($sql, $params);
     $db_connection->desconectar();
+}
+
+function getUserByEmail($email) {
+    $connectionDb = getConnection();
+    $connectionDb->conectar();
+    
+    $params = array(
+        array("email", $email, "string"));
+    
+    $sql = "SELECT * 
+            FROM usuarios 
+            WHERE email = :email";
+    
+    $connectionDb->consulta($sql, $params);
+    $user = $connectionDb->siguienteRegistro();
+    $connectionDb->desconectar();
+    
+    return $user;
 }
