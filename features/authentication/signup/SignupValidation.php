@@ -50,7 +50,7 @@ function validatePassword($password) {
     if ($password == null) {
         throw new SignupException("You must enter a password.");
     }
-    if (strlen($password) >= 6) {
+    if (strlen($password) < 6) {
         throw new SignupException("The password must have atleast 6 characters.");
     }
 }

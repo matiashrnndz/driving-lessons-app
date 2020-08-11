@@ -13,7 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $document = manageInput($_POST['signup_document']);
     $address = manageInput($_POST['signup_address']);
     $email = manageInput($_POST['signup_email']);
-    $password = managePassword($_POST['signup_password']);
+    $password = manageInput($_POST['signup_password']);
+    $encrypted_password = managePassword($password);
     $birthday = manageInput($_POST['signup_birthday']);
     
     $userData = array(
@@ -23,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "address" => $address,
         "email" => $email,
         "password" => $password,
+        "encrypted_password" => $encrypted_password,
         "birthday" => $birthday
     );
     
@@ -33,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // TODO: Send correct message
     } catch (SignupException $signupException) {
         $message = $signupException->getMessage();
+        //echo("<label>$message</label>");
         // TODO: Send error message
     }
 }

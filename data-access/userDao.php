@@ -13,7 +13,7 @@ function addUser($userData) {
         array("address", $userData['address'], "string"),
         array("document", $userData['document'], "string"),
         array("email", $userData['email'], "string"),
-        array("password", $userData['password'], "string")
+        array("password", $userData['encrypted_password'], "string")
     );
     
     $sql = "INSERT INTO `usuarios`(`usuario_id`, `email`, `password`, "

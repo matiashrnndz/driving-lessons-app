@@ -6,7 +6,7 @@ $(document).ready(function () {
     });
     
     $('#instructorRegistrationLink').click(function () {
-        $("#page-content").load("blank.html");
+        $("#page-content").load("features/instructor/instructor-registration.html");
     });
     
     $('#approveClientLink').click(function () {

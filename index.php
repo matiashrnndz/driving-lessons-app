@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="styles/body.css">
         <link rel="stylesheet" type="text/css" href="layout/main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="index.js"></script>
     </head>
     <body>
         <?php

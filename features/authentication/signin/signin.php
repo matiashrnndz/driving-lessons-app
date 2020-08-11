@@ -20,10 +20,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         validateInputs($userData);
         $user = getUserByEmail($email);
         createSession($user);
-        redirect();
+        print '<script type="text/javascript">'; 
+        print 'alert("The Customer is NOW registered")'; 
+        print '</script>';
+        sleep(3);
+        //session_start();
+        //$_SESSION['message'] = "User was created successfully!";
+        //header("Location: ../../../index.php");
+         
         // TODO: Send correct message
     } catch (SigninException $signinException) {
         $message = $signinException->getMessage();
+        print '<script type="text/javascript">'; 
+        print 'alert("The Customer is NOW registered")'; 
+        print '</script>'; 
+        sleep(3);
+        //redirect();
+        //session_start();
+        //$_SESSION['errorMessage'] = $message;
+        //$_SESSION['errorDir'] = 
+        //echo "<script> alert('$message') </script>";
+        //echo "<b>Error:</b> $message <br>";
+        // die("Error: " . $message);
         // TODO: Send error message
     }
 }
