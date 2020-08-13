@@ -1,6 +1,7 @@
 {* Smarty *}
 
 <!DOCTYPE html>
+
 <html>
     <head>
         <title></title>
@@ -13,7 +14,12 @@
         <div class="header">
             <a href="#default" class="logo">Driving Lessons</a>
             <div class="header-right">
-                <a id="authenticationLink" name="authenticationLink">Sign in / Sign up</a>
+                {if $user == null}
+                    <a id="signinLink" name="authenticationLink">Sign in</a>
+                    <a id="signupLink" name="authenticationLink">Join now</a>
+                {else}
+                    <a id="signoutLink" name="authenticationLink">Sign out</a>
+                {/if}
             </div>
         </div>
     </body>

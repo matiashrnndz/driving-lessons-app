@@ -5,14 +5,14 @@ ini_set("display_errors", 1);
 
 $smarty = GetSmarty();
 
-checkIfSesionExists();
-
-$smarty->display("index.tpl");
-
-function checkIfSesionExists() {
-    session_start();
-    if (isset($_SESSION['session_user'])) {
-        
-    }
+session_start();
+if (isset($_SESSION['session_user'])) {
+    $user = $_SESSION['session_user'];
+    $smarty->assign("user", $user);
+    $smarty->display("index.tpl");
+} else {
+    $smarty->assign("user", null);
+    $smarty->display("index.tpl");
 }
+
 ?>

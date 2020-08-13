@@ -1,8 +1,16 @@
 
 $(document).ready(function () {
     
-    $('#authenticationLink').click(function () {
-        $("#page-content").load("features/authentication/authentication.html");
+    $('#signupLink').click(function () {
+        window.location = "Signup.php";
+    });
+    
+    $('#signinLink').click(function () {
+        window.location = "Signin.php";
+    });
+    
+    $('#signoutLink').click(function () {
+        window.location = "Signout.php";
     });
     
 });

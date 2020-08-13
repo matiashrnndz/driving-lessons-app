@@ -28,17 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         validateInputs($instructorData);
         addInstructor($instructorData);
-        //$smarty->display("blank.tpl");
-        header("Location: ../InstructorRegistration.php");
-        //die("Error");
-        // TODO: Send correct message
+        header("Location: ../InstructorRegistration.php?status=ok");
     } catch (InstructorException $instructorException) {
-        //session_start();
-        //$_SESSION['err_message']
         $message = $instructorException->getMessage();
-        header("Location: ../InstructorRegistration.php?err_message=".$message);
-        //die("Error");
-        // TODO: Send error message
+        header("Location: ../Signup.php?status=err&err_message=".$message);
     }
 }
 

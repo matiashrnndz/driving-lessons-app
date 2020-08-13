@@ -13,6 +13,6 @@ if (isset($_GET['status'])) {
     }
 }
 
-$smarty->display("instructor-registration.tpl");
+$smarty->display("signup.tpl");
 
 ?>

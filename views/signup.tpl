@@ -23,14 +23,15 @@
                 <div class="page-content" id="page-content">
                     <div class="container" id="container">
                         <div class="form-container sign-up-container">
-                            <form action="controllers/InstructorRegistrationController.php" method="POST">
-                                <input type="text" name="instructor_name" placeholder="Name" />
-                                <input type="text" name="instructor_lastname" placeholder="Lastname" />
-                                <input type="text" name="instructor_document" placeholder="Document Number" />
-                                <label class="form-label" for="instructor_birthday">Birthday:</label>
-                                <input type="date" name="instructor_birthday">
-                                <label class="form-label" for="instructor_license_expiration">Driving License Expiration:</label>
-                                <input type="date" name="instructor_license_expiration">
+                            <form action="controllers/SignupController.php" method="POST">
+                                <input type="text" name="signup_name" placeholder="Name" />
+                                <input type="text" name="signup_lastname" placeholder="Lastname" />
+                                <input type="text" name="signup_document" placeholder="Document Number" />
+                                <input type="text" name="signup_address" placeholder="Address" />
+                                <input type="email" name="signup_email" placeholder="Email" />
+                                <input type="password" name="signup_password" placeholder="Password" />
+                                <label class="form-label" for="signup_birthday">Birthday:</label>
+                                <input type="date" name="signup_birthday">
                                 <button>Register</button>
                             </form>
                         </div>
@@ -38,8 +39,8 @@
                             <div class="overlay">
                                 <div class="overlay-panel overlay-right">
                                     {if $status == null}
-                                        <h1>Instructor Registration</h1>
-                                        <p>Enter the details!</p>
+                                        <h1>Not registered yet?</h1>
+                                        <p>Enter your details and start!</p>
                                     {else if $status == "err"}
                                         <h2>Oops!</h2>
                                         <p>Error: {$err_message}</p>
