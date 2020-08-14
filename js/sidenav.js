@@ -9,7 +9,7 @@ $(document).ready(function () {
         window.location = "InstructorRegistration.php";
     });
     
-    $('#approveClientLink').click(function () {
+    $('#clientApprovalLink').click(function () {
         window.location = "ClientApproval.php";
     });
     

@@ -15,7 +15,7 @@
             <a id="enrollLink" name="enrollLink">Enroll</a>
             {if $user_type != null && $user_type == 'Administrador'}
                 <a id="instructorRegistrationLink" name="instructorRegistrationLink">Instructor Registration</a>
-                <a id="approveClientLink" name="approveClientLink">Approve Client</a>
+                <a id="clientApprovalLink" name="clientApprovalLink">Client Approval</a>
                 <a id="confirmLicenseLink" name="confirmLicenseLink">Confirm License</a>
                 <a id="classListLink" name="classListLink">Class List</a>
             {/if}

@@ -71,3 +71,26 @@ function getUsers() {
     
     return $users;
 }
+
+function approveUser($email) {
+    $connectionDb = getConnection();
+    $connectionDb->conectar();
+
+    $params = array(
+        array("email", $email, "string")
+    );
+    
+    $sql = "UPDATE usuarios
+            SET usuario_tipo_id = 3
+            WHERE email = :email";
+    
+    $message = 'User ' . $email . ' was approved!';
+    
+    if (!$connectionDb->consulta($sql, $params)) {
+        $message = var_dump($connectionDb->ultimoError());
+    }
+    
+    $connectionDb->desconectar();
+    
+    return $message;
+}

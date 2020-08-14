@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="styles/grid-container.css">
         <link rel="stylesheet" type="text/css" href="styles/button.css">
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="js/client-approval" type="text/javascript"></script>
     </head>
     <body>
         {include file="header.tpl" user=$user}
@@ -32,7 +33,7 @@
                                         <p class="card_p">{$u.ci}</p>
                                         <p class="card_p">{$u.direccion}</p>
                                         <p class="card_p">{$u.fecha_nacimiento}</p>
-                                        <button>Approve</button>
+                                        <button value={$u.email}>Approve</button>
                                     </div>
                                 </div>
                             </div>
