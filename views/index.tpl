@@ -12,8 +12,13 @@
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
     </head>
     <body>
-        {include file="header.tpl"}
-        {include file="sidenav.tpl"}
+        {if $user == null}
+            {include file="header.tpl" user=null}
+            {include file="sidenav.tpl" user_type=2}
+        {else}
+            {include file="header.tpl" user=$user}
+            {include file="sidenav.tpl" user_type=$user.descripcion}
+        {/if}
         <div class="main">
             <div class="page" id="page">
                 <div class="page-content" id="page-content">

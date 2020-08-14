@@ -13,10 +13,12 @@
     <body>
         <div class="sidenav">
             <a id="enrollLink" name="enrollLink">Enroll</a>
-            <a id="instructorRegistrationLink" name="instructorRegistrationLink">Instructor Registration</a>
-            <a id="approveClientLink" name="approveClientLink">Approve Client</a>
-            <a id="confirmLicenseLink" name="confirmLicenseLink">Confirm License</a>
-            <a id="classListLink" name="classListLink">Class List</a>
+            {if $user_type != null && $user_type == 'Administrador'}
+                <a id="instructorRegistrationLink" name="instructorRegistrationLink">Instructor Registration</a>
+                <a id="approveClientLink" name="approveClientLink">Approve Client</a>
+                <a id="confirmLicenseLink" name="confirmLicenseLink">Confirm License</a>
+                <a id="classListLink" name="classListLink">Class List</a>
+            {/if}
         </div>
     </body>
 </html>

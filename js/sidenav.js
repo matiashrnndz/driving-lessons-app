@@ -10,7 +10,7 @@ $(document).ready(function () {
     });
     
     $('#approveClientLink').click(function () {
-        window.location = "Blank.php";
+        window.location = "ClientApproval.php";
     });
     
     $('#confirmLicenseLink').click(function () {

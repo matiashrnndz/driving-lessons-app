@@ -16,8 +16,8 @@
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
     </head>
     <body>
-        {include file="header.tpl"  user=$user}
-        {include file="sidenav.tpl"}
+        {include file="header.tpl" user=$user}
+        {include file="sidenav.tpl" user_type=null}
         <div class="main">
             <div class="page" id="page">
                 <div class="page-content" id="page-content">
@@ -25,7 +25,7 @@
                         <div class="form-container sign-up-container">
                             <form action="controllers/SigninController.php" method="POST">
                                 <h1>Sign in</h1>
-                                <input type="email" name="signin_email" placeholder="Email" />
+                                <input type="text" name="signin_email" placeholder="Email" />
                                 <input type="password" name="signin_password" placeholder="Password" />
                                 <button>Sign In</button>
                             </form>

@@ -16,8 +16,8 @@
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
     </head>
     <body>
-        {include file="header.tpl"}
-        {include file="sidenav.tpl"}
+        {include file="header.tpl" user=$user}
+        {include file="sidenav.tpl" user_type=$user.descripcion}
         <div class="main">
             <div class="page" id="page">
                 <div class="page-content" id="page-content">

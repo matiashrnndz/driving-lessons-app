@@ -33,8 +33,9 @@ function getUserByEmail($email) {
     $params = array(
         array("email", $email, "string"));
     
-    $sql = "SELECT * 
-            FROM usuarios 
+    $sql = "SELECT u.usuario_id, u.email, u.password, u.nombre, u.apellido, u.ci, u.direccion, u.fecha_nacimiento, ut.descripcion
+            FROM usuarios u
+            JOIN usuarios_tipos ut ON u.usuario_tipo_id = ut.usuario_tipo_id
             WHERE email = :email";
     
     $connectionDb->consulta($sql, $params);
@@ -42,4 +43,31 @@ function getUserByEmail($email) {
     $connectionDb->desconectar();
     
     return $user;
+}
+
+function getUsers() {
+    $connectionDb = getConnection();
+    $connectionDb->conectar();
+
+    $description = 'Usuario';
+    
+    $params = array(
+        array("descripcion", $description, "string"));
+    
+    $sql = "SELECT u.usuario_id, u.email, u.password, u.nombre, u.apellido, u.ci, u.direccion, u.fecha_nacimiento, ut.descripcion
+            FROM usuarios u
+            JOIN usuarios_tipos ut ON u.usuario_tipo_id = ut.usuario_tipo_id
+            WHERE ut.descripcion = :descripcion";
+    
+    $users = null;
+    
+    if ($connectionDb->consulta($sql, $params)) {
+        $users = $connectionDb->restantesRegistros();
+    } else {
+        //var_dump($connectionDb->ultimoError());
+    }
+    
+    $connectionDb->desconectar();
+    
+    return $users;
 }
