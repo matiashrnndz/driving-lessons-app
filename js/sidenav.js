@@ -18,7 +18,7 @@ $(document).ready(function () {
     });
     
     $('#classListLink').click(function () {
-        window.location = "Blank.php";
+        window.location = "ClassList.php";
     });
     
 });

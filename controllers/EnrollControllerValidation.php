@@ -38,3 +38,5 @@ function validateInstructor($reservationData) {
         throw new EnrollControllerException("The instructor is not available.");
     }
 }
+
+?>

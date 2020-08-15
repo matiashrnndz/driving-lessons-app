@@ -48,3 +48,33 @@ function existsRegistration($reservationData) {
     
     return $reservationExists;
 }
+
+function getReservationsByInstructorByDate($reservationData) {
+    $connectionDb = getConnection();
+    $connectionDb->conectar();
+
+    $params = array(
+        array("instructorId", $reservationData[instructorId], "int"),
+        array("date", $reservationData[date], "string")
+    );
+    
+    $sql = "SELECT i.nombre, i.apellido, r.fecha, r.hora, u.nombre AS usuario_nombre, u.apellido AS usuario_apellido, u.direccion AS usuario_direccion
+            FROM reservas r
+                JOIN usuarios u ON u.usuario_id = r.usuario_id
+                JOIN instructores i ON i.instructor_id = r.instructor_id
+            WHERE r.instructor_id = :instructorId
+                AND r.fecha = :date
+            ORDER BY i.nombre, i.apellido, r.fecha, r.hora;";
+    
+    $class_list = null;
+    
+    if ($connectionDb->consulta($sql, $params)) {
+        $class_list = $connectionDb->restantesRegistros();
+    }
+    
+    $connectionDb->desconectar();
+    
+    return $class_list;
+}
+
+?>
