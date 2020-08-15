@@ -25,6 +25,10 @@ input {
     transition: all 0.6s ease-in-out;
 }
 
+.from-container-button {
+    margin-top: 20px;
+}
+
 .form-label {
     text-align: left;
     float: left;

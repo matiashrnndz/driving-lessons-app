@@ -2,7 +2,7 @@
 $(document).ready(function () {
     
     $('#enrollLink').click(function () {
-        window.location = "Blank.php";
+        window.location = "Enroll.php";
     });
     
     $('#instructorRegistrationLink').click(function () {
