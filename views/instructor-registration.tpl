@@ -42,7 +42,7 @@
                                         <p>Enter the details!</p>
                                     {else if $status == "err"}
                                         <h2>Oops!</h2>
-                                        <p>Error: {$err_message}</p>
+                                        <p>{$err_message}</p>
                                     {else if $status == "ok"}
                                         <h1>Welcome!</h1>
                                         <h2>Your user was created successfully</h2>

@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="header">
-            <a href="#default" class="logo">Driving Lessons</a>
+            <a id="logoLink" name="logoLink" class="logo">Driving Lessons</a>
             <div class="header-right">
                 {if $user == null}
                     <a id="signinLink" name="authenticationLink">Sign in</a>

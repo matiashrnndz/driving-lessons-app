@@ -17,6 +17,7 @@
         <div class="main">
             <div class="page" id="page">
                 <div class="page-content" id="page-content">
+                    <p>The cost of the courses are $ 1000 per class.</p>
                 </div>
             </div>
         </div>

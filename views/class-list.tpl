@@ -43,7 +43,7 @@
                                             <h1>Generate a report!</h1>
                                         {else if $status == "err"}
                                             <h2>Oops!</h2>
-                                            <p>Error: {$err_message}</p>
+                                            <p>{$err_message}</p>
                                         {/if}
                                     </div>
                                 </div>

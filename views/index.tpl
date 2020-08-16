@@ -22,7 +22,10 @@
         <div class="main">
             <div class="page" id="page">
                 <div class="page-content" id="page-content">
-
+                    {if $user == null}
+                        <h1>Register to schedule your classes!</h1>
+                        <h3>The cost of the courses are $ 1000 per class.</h3>
+                    {/if} 
                 </div>
             </div>
         </div>

@@ -23,8 +23,8 @@
             <div class="page" id="page">
                 <div class="page-content" id="page-content">
                     <div class="container" id="container">
-                        <div id="customers">
-                            <table id="tab_customers" class="table table-striped" >
+                        <div id="classes">
+                            <table id="tab_classes" class="table table-striped" >
                                 <colgroup>
                                     <col width="20%">
                                         <col width="20%">

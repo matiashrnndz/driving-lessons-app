@@ -18,6 +18,9 @@ function validateDate($date) {
     if ($date_aux <= new DateTime()) {
         throw new EnrollControllerException("The date must be greater than today.");
     }
+    if (date('N', strtotime($date)) >= 6) {
+        throw new EnrollControllerException("Weekend days cannot be selected.");
+    }
 }
 
 function validateTime($time) {

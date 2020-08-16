@@ -25,6 +25,7 @@
                     <div>
                         <div class="container" id="container">
                             <div class="form-container sign-up-container">
+                                
                                 <form action="controllers/EnrollController.php" method="POST">
                                     <label class="form-label" for="enroll_date">Date:</label>
                                     <input type="date" name="enroll_date">
@@ -53,7 +54,9 @@
                                     </select>
                                     <button class='from-container-button' style="margin-top: 20px">Enroll</button>
                                 </form>
+                                
                             </div>
+                                 
                             <div class="overlay-container">
                                 <div class="overlay">
                                     <div class="overlay-panel overlay-right">
@@ -61,11 +64,13 @@
                                             <h1>Enroll for a driving course!</h1>
                                         {else if $status == "err"}
                                             <h2>Oops!</h2>
-                                            <p>Error: {$err_message}</p>
+                                            <p>{$err_message}</p>
                                         {else if $status == "ok"}
                                             <h1>Thanks for your enrrollment!</h1>
                                             <h2>Your course was schedulled!</h2>
                                         {/if}
+                                            <br>
+                                            <p>The cost of the courses are $ 1000 per class.</p>
                                     </div>
                                 </div>
                             </div>

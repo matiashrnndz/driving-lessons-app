@@ -14,7 +14,7 @@ $(document).ready(function () {
     });
     
     $('#confirmLicenseLink').click(function () {
-        window.location = "Blank.php";
+        window.location = "LicenseConfirmation.php";
     });
     
     $('#classListLink').click(function () {

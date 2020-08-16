@@ -1,5 +1,7 @@
 <?php
 
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/configs/configuration.php');
+
 function addReservation($reservationData) {
     $connectionDb = getConnection();
     $connectionDb->conectar();
@@ -75,6 +77,28 @@ function getReservationsByInstructorByDate($reservationData) {
     $connectionDb->desconectar();
     
     return $class_list;
+}
+
+function getUsersReadyToConfirmLicense() {
+    $connectionDb = getConnection();
+    $connectionDb->conectar();
+
+    $sql = "SELECT u.usuario_id, u.email, u.nombre, u.apellido, count(*) AS cant_clases
+            FROM reservas r
+                JOIN usuarios u ON u.usuario_id = r.usuario_id
+            WHERE u.usuario_id NOT IN (SELECT usuario_id FROM libretas)
+            GROUP BY u.usuario_id
+            HAVING cant_clases >= 5;";
+    
+    $users = null;
+    
+    if ($connectionDb->consulta($sql)) {
+        $users = $connectionDb->restantesRegistros();
+    }
+    
+    $connectionDb->desconectar();
+    
+    return $users;
 }
 
 ?>

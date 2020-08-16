@@ -21,6 +21,12 @@
                 <a id="confirmLicenseLink" name="confirmLicenseLink">Confirm License</a>
                 <a id="classListLink" name="classListLink">Class List</a>
             {/if}
+            <!--
+            <div class="sidenav_stats">
+                <p>Active users: {$activeUsers}</p>
+                <p>Licensed users: {$licensedUsers}</p>
+            </div>
+            -->
         </div>
     </body>
 </html>
