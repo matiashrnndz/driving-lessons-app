@@ -12,21 +12,15 @@
     </head>
     <body>
         <div class="sidenav">
-            {if $user_type != null && $user_type == 'Cliente'}
+            {if $user_type != null && $user_type == "Cliente"}
                 <a id="enrollLink" name="enrollLink">Enroll</a>
-            {else if $user_type != null && $user_type == 'Administrador'}
+            {else if $user_type != null && $user_type == "Administrador"}
                 <a id="enrollLink" name="enrollLink">Enroll</a>
                 <a id="instructorRegistrationLink" name="instructorRegistrationLink">Instructor Registration</a>
                 <a id="clientApprovalLink" name="clientApprovalLink">Client Approval</a>
                 <a id="confirmLicenseLink" name="confirmLicenseLink">Confirm License</a>
                 <a id="classListLink" name="classListLink">Class List</a>
             {/if}
-            <!--
-            <div class="sidenav_stats">
-                <p>Active users: {$activeUsers}</p>
-                <p>Licensed users: {$licensedUsers}</p>
-            </div>
-            -->
         </div>
     </body>
 </html>

@@ -17,7 +17,7 @@
     </head>
     <body>
         {include file="header.tpl" user=null}
-        {include file="sidenav.tpl" user_type=null}
+        {include file="sidenav.tpl" user_type="Usuario"}
         <div class="main">
             <div class="page" id="page">
                 <div class="page-content" id="page-content">

@@ -14,7 +14,7 @@
     <body>
         {if $user == null}
             {include file="header.tpl" user=null}
-            {include file="sidenav.tpl" user_type=2}
+            {include file="sidenav.tpl" user_type="Usuario"}
         {else}
             {include file="header.tpl" user=$user}
             {include file="sidenav.tpl" user_type=$user.descripcion}

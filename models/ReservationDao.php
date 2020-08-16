@@ -101,4 +101,23 @@ function getUsersReadyToConfirmLicense() {
     return $users;
 }
 
+function getCountActiveUsers() {
+    $connectionDb = getConnection();
+    $connectionDb->conectar();
+
+    $sql = "SELECT count(*) AS active_users
+            FROM reservas
+            WHERE usuario_id NOT IN (SELECT usuario_id FROM libretas)
+            GROUP BY usuario_id;";
+    
+    $count = 0;
+    if($connectionDb->consulta($sql)) {
+        $count = $connectionDb->restantesRegistros()[0][active_users];
+    }
+    
+    $connectionDb->desconectar();
+    
+    return $count;
+}
+
 ?>

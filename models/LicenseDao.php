@@ -20,4 +20,21 @@ function addLicense($usuarioId) {
     $connectionDb->desconectar();
 }
 
+function getCountUsersWithLicense() {
+    $connectionDb = getConnection();
+    $connectionDb->conectar();
+    
+    $sql = "SELECT count(*) AS users_with_license
+            FROM libretas;";
+   
+    $count = 0;
+    if($connectionDb->consulta($sql)) {
+        $count = $connectionDb->restantesRegistros()[0][users_with_license];
+    }
+    
+    $connectionDb->desconectar();
+    
+    return $count;
+}
+
 ?>
