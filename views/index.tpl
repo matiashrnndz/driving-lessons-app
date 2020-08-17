@@ -14,10 +14,10 @@
     <body>
         {if $user == null}
             {include file="header.tpl" user=null}
-            {include file="sidenav.tpl" user_type="Usuario"}
+            {include file="sidenav.tpl" user_type="Usuario" active_users=$active_users users_with_license=$users_with_license}
         {else}
             {include file="header.tpl" user=$user}
-            {include file="sidenav.tpl" user_type=$user.descripcion}
+            {include file="sidenav.tpl" user_type=$user.descripcion active_users=$active_users users_with_license=$users_with_license}
         {/if}
         <div class="main">
             <div class="page" id="page">

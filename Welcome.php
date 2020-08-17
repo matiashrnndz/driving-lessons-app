@@ -1,10 +1,6 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/configs/configuration.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/ReservationDao.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/LicenseDao.php');
-
-ini_set("display_errors", 1);
 
 $smarty = GetSmarty();
 
@@ -22,5 +18,7 @@ if (isset($_SESSION['session_user'])) {
 } else {
     $smarty->display("welcome.tpl");
 }
+
+
 
 ?>

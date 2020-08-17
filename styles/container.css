@@ -9,6 +9,8 @@
     width: 768px;
     max-width: 100%;
     min-height: 500px;
+    margin: auto;
+    top: 15%;
 }
 
 .overlay-container {

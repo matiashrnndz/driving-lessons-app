@@ -2,6 +2,8 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/configs/configuration.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/InstructorDao.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/ReservationDao.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/LicenseDao.php');
 
 $smarty = GetSmarty();
 
@@ -13,6 +15,12 @@ if (isset($_SESSION['session_user'])) {
 
 $instructors = getInstructors();
 $smarty->assign("instructors", $instructors);
+
+$usersWithLicense = getCountUsersWithLicense();
+$smarty->assign("users_with_license", $usersWithLicense);
+
+$activeUsers = getCountActiveUsers();
+$smarty->assign("active_users", $activeUsers);
 
 if (isset($_GET['status'])) {
     $status = $_GET['status'];
