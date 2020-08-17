@@ -1,6 +1,6 @@
 <?php
 
-class SigninException extends Exception {
+class SigninControllerException extends Exception {
     
     public function errorMessage($err) {
         return $err;

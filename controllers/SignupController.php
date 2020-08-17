@@ -1,8 +1,8 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/UserDao.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/SignupValidation.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/SignupException.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/validations/SignupControllerValidation.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/exceptions/SignupControllerException.php');
 
 $name = $lastname = $document = $address = $email = $password = $birthday = "";
         
@@ -32,8 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         validateInputs($userData);
         addUser($userData);
         header("Location: ../Signup.php?status=ok");
-    } catch (SignupException $signupException) {
-        $message = $signupException->getMessage();
+    } catch (SignupControllerException $signupControllerException) {
+        $message = $signupControllerException->getMessage();
         header("Location: ../Signup.php?status=err&err_message=".$message);
     }
 }

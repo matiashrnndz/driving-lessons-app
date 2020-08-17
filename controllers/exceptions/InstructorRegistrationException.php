@@ -1,6 +1,6 @@
 <?php
 
-class SignupException extends Exception {
+class InstructorRegistrationException extends Exception {
     
     public function errorMessage($err) {
         return $err;

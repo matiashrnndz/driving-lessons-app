@@ -1,8 +1,8 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/InstructorDao.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/InstructorRegistrationValidation.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/InstructorRegistrationException.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/validations/InstructorRegistrationValidation.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/exceptions/InstructorRegistrationException.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/configs/configuration.php');
 
 $smarty = GetSmarty();
@@ -29,9 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         validateInputs($instructorData);
         addInstructor($instructorData);
         header("Location: ../InstructorRegistration.php?status=ok");
-    } catch (InstructorException $instructorException) {
-        $message = $instructorException->getMessage();
-        header("Location: ../Signup.php?status=err&err_message=".$message);
+    } catch (InstructorRegistrationException $instructorRegistrationException) {
+        $message = $instructorRegistrationException->getMessage();
+        header("Location: ../InstructorRegistration.php?status=err&err_message=".$message);
     }
 }
 

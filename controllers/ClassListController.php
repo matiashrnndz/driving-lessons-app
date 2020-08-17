@@ -1,8 +1,8 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/ReservationDao.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/ClassListControllerValidation.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/ClassListControllerException.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/validations/ClassListControllerValidation.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/exceptions/ClassListControllerException.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/configs/configuration.php');
 
 $smarty = GetSmarty();

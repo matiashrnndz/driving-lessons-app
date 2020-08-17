@@ -1,8 +1,8 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/UserDao.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/SigninValidation.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/SigninException.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/validations/SigninControllerValidation.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/exceptions/SigninControllerException.php');
 
 $email = $password = "";
         
@@ -21,8 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = getUserByEmail($email);
         createSession($user);
         header("Location: ../Signin.php?status=ok");
-    } catch (SigninException $signinException) {
-        $message = $signinException->getMessage();
+    } catch (SigninControllerException $signinControllerException) {
+        $message = $signinControllerException->getMessage();
         header("Location: ../Signin.php?status=err&err_message=".$message);
     }
 }

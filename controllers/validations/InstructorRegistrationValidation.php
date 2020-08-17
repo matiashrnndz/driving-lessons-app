@@ -1,7 +1,7 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/InstructorDao.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/InstructorRegistrationException.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/exceptions/InstructorRegistrationException.php');
 
 function validateInputs($instructorData) {
     validateName($instructorData['name']);
@@ -13,39 +13,39 @@ function validateInputs($instructorData) {
 
 function validateName($name) {
     if ($name == null) {
-        throw new InstructorException("You must enter a name.");
+        throw new InstructorRegistrationException("You must enter a name.");
     }
 }
 
 function validateLastname($lastname) {
     if ($lastname == null) {
-        throw new InstructorException("You must enter a lastname.");
+        throw new InstructorRegistrationException("You must enter a lastname.");
     }
 }
 
 function validateDocument($document) {
     if ($document == null) {
-        throw new InstructorException("You must enter a document.");
+        throw new InstructorRegistrationException("You must enter a document.");
     }
 }
 
 function validateBirthday($birthday) {
     if ($birthday == null) {
-        throw new InstructorException("You must enter a birthday.");
+        throw new InstructorRegistrationException("You must enter a birthday.");
     }
     $birthday_aux = new DateTime($birthday);
     $birthday_aux->add(new DateInterval("P18Y"));
     if($birthday_aux >= new DateTime()) {
-        throw new InstructorException("Instructor must be 18 years or older.");
+        throw new InstructorRegistrationException("Instructor must be 18 years or older.");
     }
 }
 
 function validateLicense($license) {
     if ($license == null) {
-        throw new InstructorException("You must enter a license expiration date.");
+        throw new InstructorRegistrationException("You must enter a license expiration date.");
     }
     $license_aux = new DateTime($license);
     if ($license_aux < new DateTime()) {
-        throw new InstructorException("The driving license cannot be expired.");
+        throw new InstructorRegistrationException("The driving license cannot be expired.");
     }
 }
