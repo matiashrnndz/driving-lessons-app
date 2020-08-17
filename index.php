@@ -18,7 +18,8 @@ session_start();
 if (isset($_SESSION['session_user'])) {
     $user = $_SESSION['session_user'];
     $smarty->assign("user", $user);
-    $smarty->display("index.tpl");
+    //$smarty->display("index.tpl");
+    $smarty->display("calendar.tpl");
 } else {
     $smarty->display("welcome.tpl");
 }

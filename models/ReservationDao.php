@@ -112,7 +112,7 @@ function getCountActiveUsers() {
     
     $count = 0;
     if($connectionDb->consulta($sql)) {
-        $count = $connectionDb->restantesRegistros()[0][active_users];
+        $count = $connectionDb->restantesRegistros()[0]['active_users'];
     }
     
     $connectionDb->desconectar();

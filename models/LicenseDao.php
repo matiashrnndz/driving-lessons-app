@@ -29,7 +29,7 @@ function getCountUsersWithLicense() {
    
     $count = 0;
     if($connectionDb->consulta($sql)) {
-        $count = $connectionDb->restantesRegistros()[0][users_with_license];
+        $count = $connectionDb->restantesRegistros()[0]['users_with_license'];
     }
     
     $connectionDb->desconectar();
