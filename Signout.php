@@ -18,6 +18,6 @@ $activeUsers = getCountActiveUsers();
 $smarty->assign("active_users", $activeUsers);
 
 $smarty->assign("user", null);
-$smarty->display("index.tpl");
+$smarty->display("calendar.tpl");
 
 ?>

@@ -4,7 +4,7 @@ $(document).ready(function () {
     const h = tag => document.createElement(tag);
 
     const text_labels = {
-        en: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'],
+        en: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
     };
 
     // Setup
@@ -17,8 +17,12 @@ $(document).ready(function () {
     });
 
     const dspan = Array.from({length: 42}, () => {
-        return dates.appendChild(h('span'));
+        return dates.appendChild(h("span"));
     });
+    
+    console.log(dspan);
+    
+    
 
     // State mgmt
 
@@ -42,7 +46,12 @@ $(document).ready(function () {
         let i = 0, j = 0, date = new Date(state.year, state.month);
         calendarize(date, offset).forEach(week => {
             for (j = 0; j < 7; j++) {
-                dspan[i++].textContent = week[j] > 0 ? week[j] : '';
+                dspan[i].textContent = week[j] > 0 ? week[j] : '';
+                if (week[j] != '') {
+                    dspan[i].id = state.year + '-' + (state.month + 1) + '-' + week[j];
+                }
+                i++;
+                console.log(dspan[i]);
             }
         });
 

@@ -7,7 +7,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/configs/configuration.
 
 $smarty = GetSmarty();
 
-$date = $time = $instructorId = "";
+$date = $time = $instructorId = $userId = "";
         
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     

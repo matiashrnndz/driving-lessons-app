@@ -29,7 +29,7 @@ if (isset($_GET['status'])) {
             $user = $_SESSION['session_user'];
             $smarty->assign("err_message", null);
             $smarty->assign("user", $user);
-            $smarty->display("index.tpl");
+            $smarty->display("calendar.tpl");
             break;
         default:
             $smarty->assign("err_message", null);

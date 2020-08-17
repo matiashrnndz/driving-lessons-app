@@ -16,8 +16,8 @@
         <script src="https://unpkg.com/sublet"></script>
     </head>
     <body>
-        {include file="header.tpl" user=null}
-        {include file="sidenav.tpl" user_type="Usuario" active_users=$active_users users_with_license=$users_with_license}
+        {include file="header.tpl" user=$user}
+        {include file="sidenav.tpl" user_type=$user.descripcion active_users=$active_users users_with_license=$users_with_license}
         <div class="main">
             <div class="page" id="page">
                 <div class="page-content" id="page-content">
@@ -45,6 +45,10 @@
                         <div id="calendar">
                           <div class="labels"></div>
                           <div class="dates"></div>
+                        </div>
+                        <div style="align-content: center">
+                            <h1>Register to schedule your classes!</h1>
+                            <h3>The cost of the courses are $ 1000 per class.</h3>
                         </div>
                     </div>
                 </div>
