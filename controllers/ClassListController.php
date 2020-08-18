@@ -5,8 +5,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/validation
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/exceptions/ClassListControllerException.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/configs/configuration.php');
 
-$smarty = GetSmarty();
-
 $date = $instructorId = "";
         
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

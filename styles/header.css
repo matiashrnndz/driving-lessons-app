@@ -1,5 +1,4 @@
 
-/* Style the header */
 .header {
     height: 92px;
     left: 0; right: 0; top: 0;
@@ -18,7 +17,6 @@
         0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-/* Style the header links */
 .header a {
     float: left;
     text-align: center;
@@ -33,32 +31,27 @@
     text-transform: uppercase;
 }
 
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 .header a.logo {
     font-size: 25px;
     font-weight: bold;
     border: none;
 }
 
-/* Change the background color on mouse-over */
 .header a:hover {
     outline: none;
     font-weight: bold;
     cursor: pointer;
 }
 
-/* Style the active/current link*/
 .header a.active {
     background-color: dodgerblue;
     color: white;
 }
 
-/* Float the link section to the right */
 .header-right {
     float: right;
 }
 
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 500px) {
     .header a {
       float: none;

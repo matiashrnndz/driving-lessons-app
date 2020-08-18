@@ -7,12 +7,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/LicenseDao.php'
 
 $smarty = GetSmarty();
 
-session_start();
-if (isset($_SESSION['session_user'])) {
-    $user = $_SESSION['session_user'];
-    $smarty->assign("user", $user);
-}
-
 $usersWithLicense = getCountUsersWithLicense();
 $smarty->assign("users_with_license", $usersWithLicense);
 
@@ -21,6 +15,12 @@ $smarty->assign("active_users", $activeUsers);
 
 $users = getUsers();
 $smarty->assign("users", $users);
+
+session_start();
+if (isset($_SESSION['session_user'])) {
+    $user = $_SESSION['session_user'];
+    $smarty->assign("user", $user);
+}
 
 $smarty->display("client-approval.tpl");
 

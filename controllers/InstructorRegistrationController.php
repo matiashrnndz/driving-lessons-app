@@ -5,8 +5,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/validation
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/controllers/exceptions/InstructorRegistrationException.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/configs/configuration.php');
 
-$smarty = GetSmarty();
-
 $name = $lastname = $document = $birthday = $license = "";
         
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

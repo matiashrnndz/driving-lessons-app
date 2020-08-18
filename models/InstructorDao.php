@@ -14,11 +14,9 @@ function addInstructor($instructorData) {
         array("license", $instructorData['license'], "string")
     );
 
-    $sql = "INSERT INTO `instructores`(`instructor_id`, `nombre`, `apellido`, "
-        . "`fecha_nacimiento`, `ci`, `vencimiento`) "
-        . "VALUES (NULL,:name,:lastname,:birthday,"
-        . ":document,:license)";
-    
+    $sql = "INSERT INTO instructores(instructor_id, nombre, apellido, fecha_nacimiento, ci, vencimiento)
+            VALUES (NULL, :name, :lastname, :birthday, :document, :license)";
+
     $connectionDb->consulta($sql, $params);
     $connectionDb->desconectar();
 }
@@ -35,8 +33,6 @@ function getInstructors() {
     
     if ($connectionDb->consulta($sql)) {
         $instructors = $connectionDb->restantesRegistros();
-    } else {
-        //var_dump($connectionDb->ultimoError());
     }
     
     $connectionDb->desconectar();
