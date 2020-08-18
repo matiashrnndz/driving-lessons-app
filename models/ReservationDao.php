@@ -110,7 +110,10 @@ function getCountActiveUsers() {
     
     $count = 0;
     if($connectionDb->consulta($sql)) {
-        $count = $connectionDb->restantesRegistros()[0]['active_users'];
+        $restantesRegistros = $connectionDb->restantesRegistros();
+        if(!empty($restantesRegistros)) {
+            $count = $restantesRegistros[0]['active_users'];
+        }
     }
     
     $connectionDb->desconectar();
@@ -132,7 +135,10 @@ function getAvailability($date) {
     
     $pct = 0;
     if($connectionDb->consulta($sql, $params)) {
-        $pct = $connectionDb->restantesRegistros()[0]['pct'];
+        $restantesRegistros = $connectionDb->restantesRegistros();
+        if(!empty($restantesRegistros)) {
+            $pct = $restantesRegistros[0]['pct'];
+        }
     }
     
     $connectionDb->desconectar();
