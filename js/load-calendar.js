@@ -1,10 +1,8 @@
 
 function loadColor(date) {
     
-    console.log(date);
-    
     $(document).ready(function () {
-
+        
         $.ajax({
             url: "controllers/CalendarController.php",
             async: true,
@@ -20,7 +18,7 @@ function loadColor(date) {
                 }
             }
         });
-
+        
     });
     
 }

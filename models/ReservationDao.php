@@ -13,10 +13,8 @@ function addReservation($reservationData) {
         array("userId", $reservationData['userId'], "int")
     );
 
-    $sql = "INSERT INTO `reservas`(`reserva_id`, `fecha`, `hora`, "
-        . "`instructor_id`, `usuario_id`) "
-        . "VALUES (NULL,:date,:time,:instructorId,"
-        . ":userId)";
+    $sql = "INSERT INTO reservas(reserva_id, fecha, hora, instructor_id, usuario_id)
+            VALUES (NULL, :date, :time, :instructorId, :userId)";
     
     $connectionDb->consulta($sql, $params);
     $connectionDb->desconectar();

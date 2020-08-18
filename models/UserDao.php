@@ -16,11 +16,8 @@ function addUser($userData) {
         array("password", $userData['encrypted_password'], "string")
     );
     
-    $sql = "INSERT INTO `usuarios`(`usuario_id`, `email`, `password`, "
-            . "`nombre`, `apellido`, `ci`, `direccion`, "
-            . "`fecha_nacimiento`, `usuario_tipo_id`) "
-            . "VALUES (NULL,:email,:password,:name,"
-            . ":lastname,:document,:address,:birthday, 2)";
+    $sql = "INSERT INTO usuarios(usuario_id, email, password, nombre, apellido, ci, direccion, fecha_nacimiento, usuario_tipo_id)
+            VALUES (NULL, :email, :password, :name, :lastname, :document, :address, :birthday, 2)";
     
     $db_connection->consulta($sql, $params);
     $db_connection->desconectar();
@@ -56,15 +53,13 @@ function getUsers() {
     
     $sql = "SELECT u.usuario_id, u.email, u.password, u.nombre, u.apellido, u.ci, u.direccion, u.fecha_nacimiento, ut.descripcion
             FROM usuarios u
-            JOIN usuarios_tipos ut ON u.usuario_tipo_id = ut.usuario_tipo_id
+                JOIN usuarios_tipos ut ON u.usuario_tipo_id = ut.usuario_tipo_id
             WHERE ut.descripcion = :descripcion";
     
     $users = null;
     
     if ($connectionDb->consulta($sql, $params)) {
         $users = $connectionDb->restantesRegistros();
-    } else {
-        //var_dump($connectionDb->ultimoError());
     }
     
     $connectionDb->desconectar();
