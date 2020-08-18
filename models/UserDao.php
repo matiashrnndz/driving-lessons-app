@@ -32,7 +32,7 @@ function getUserByEmail($email) {
     
     $sql = "SELECT u.usuario_id, u.email, u.password, u.nombre, u.apellido, u.ci, u.direccion, u.fecha_nacimiento, ut.descripcion
             FROM usuarios u
-            JOIN usuarios_tipos ut ON u.usuario_tipo_id = ut.usuario_tipo_id
+                JOIN usuarios_tipos ut ON u.usuario_tipo_id = ut.usuario_tipo_id
             WHERE email = :email";
     
     $connectionDb->consulta($sql, $params);
