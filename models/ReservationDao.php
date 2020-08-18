@@ -88,7 +88,7 @@ function getUsersReadyToConfirmLicense() {
                 JOIN usuarios u ON u.usuario_id = r.usuario_id
             WHERE u.usuario_id NOT IN (SELECT usuario_id FROM libretas)
             GROUP BY u.usuario_id
-            HAVING cant_clases >= 5;";
+            HAVING cant_clases >= 15;";
     
     $users = null;
     
@@ -118,6 +118,28 @@ function getCountActiveUsers() {
     $connectionDb->desconectar();
     
     return $count;
+}
+
+function getAvailability($date) {
+    $connectionDb = getConnection();
+    $connectionDb->conectar();
+
+    $params = array(
+        array("date", $date, "string")
+    );
+    
+    $sql = "SELECT (r.cantReservas * 100) / (i.cantInstructores * 14) AS pct
+            FROM (SELECT count(*) AS cantInstructores FROM instructores) i,
+                 (SELECT count(*) AS cantReservas FROM reservas WHERE fecha = :date) r;";
+    
+    $pct = 0;
+    if($connectionDb->consulta($sql, $params)) {
+        $pct = $connectionDb->restantesRegistros()[0]['pct'];
+    }
+    
+    $connectionDb->desconectar();
+    
+    return $pct;
 }
 
 ?>

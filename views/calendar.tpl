@@ -11,9 +11,10 @@
         <link rel="stylesheet" type="text/css" href="styles/main.css">
         <link rel="stylesheet" type="text/css" href="styles/calendar.css">
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="js/calendar.js"></script>
         <script src="https://unpkg.com/calendarize"></script>
         <script src="https://unpkg.com/sublet"></script>
+        <script type="text/javascript" src="js/load-calendar.js"></script>
+        <script type="text/javascript" src="js/calendar.js"></script>
     </head>
     <body>
         {include file="header.tpl" user=$user}
@@ -22,34 +23,17 @@
             <div class="page" id="page">
                 <div class="page-content" id="page-content">
                     <div class="container">
-                        <fieldset>
-                            <div class="input">
-                                <label for="month">Date:</label>
-                                <select id="month">
-                                    <option value="0">January</option>
-                                    <option value="1">February</option>
-                                    <option value="2">March</option>
-                                    <option value="3">April</option>
-                                    <option value="4">May</option>
-                                    <option value="5">June</option>
-                                    <option value="6">July</option>
-                                    <option value="7" selected>August</option>
-                                    <option value="8">September</option>
-                                    <option value="9">October</option>
-                                    <option value="10">November</option>
-                                    <option value="11">December</option>
-                                </select>
-                                <input id="year" type="number" min="2020" max="2025" step="1" value="2020">
-                            </div>
-                        </fieldset>
+                        <h1 style="margin-top: 30px">August 2020</h1>
                         <div id="calendar">
                           <div class="labels"></div>
                           <div class="dates"></div>
                         </div>
-                        <div style="align-content: center">
-                            <h1>Register to schedule your classes!</h1>
-                            <h3>The cost of the courses are $ 1000 per class.</h3>
-                        </div>
+                        {if $user == null}
+                            <div style="align-content: center">
+                                <h1>Register to schedule your classes!</h1>
+                                <h3>The cost of the courses are $ 1000 per class.</h3>
+                            </div>
+                        {/if}
                     </div>
                 </div>
             </div>

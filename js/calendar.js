@@ -1,17 +1,14 @@
+
 $(document).ready(function () {
 
     const $ = document.querySelector.bind(document);
     const h = tag => document.createElement(tag);
 
-    const text_labels = {
-        en: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
-    };
-
-    // Setup
+    const text_labels = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
     const labels = $('#calendar .labels');
     const dates = $('#calendar .dates');
-
+    
     const lspan = Array.from({length: 7}, () => {
         return labels.appendChild(h('span'));
     });
@@ -19,56 +16,33 @@ $(document).ready(function () {
     const dspan = Array.from({length: 42}, () => {
         return dates.appendChild(h("span"));
     });
-    
-    console.log(dspan);
-    
-    
-
-    // State mgmt
 
     const view = sublet({
-        lang: 'en',
-        offset: 0,
         year: 2020,
         month: 7,
     }, update);
 
     function update(state) {
-        const offset = state.offset;
-
-        // apply day labels
-        const txts = text_labels[state.lang];
+        
         lspan.forEach((el, idx) => {
-            el.textContent = txts[(idx + offset) % 7];
+            el.textContent = text_labels[(idx) % 7];
         });
 
-        // apply date labels (very naiive way, pt 1)
+        const offset = 0;
         let i = 0, j = 0, date = new Date(state.year, state.month);
         calendarize(date, offset).forEach(week => {
             for (j = 0; j < 7; j++) {
                 dspan[i].textContent = week[j] > 0 ? week[j] : '';
                 if (week[j] != '') {
-                    dspan[i].id = state.year + '-' + (state.month + 1) + '-' + week[j];
+                    dspan[i].id = state.year + '-' + 0+(state.month + 1) + '-' + week[j];
+                    loadColor(dspan[i].id);
                 }
                 i++;
-                console.log(dspan[i]);
             }
         });
 
-        // clear remaining (very naiive way, pt 2)
         while (i < dspan.length)
             dspan[i++].textContent = '';
     }
 
-    // Inputs
-
-    $('#month').onchange = ev => {
-        view.month = ev.target.value;
-    };
-
-    $('#year').onchange = ev => {
-        view.year = ev.target.value;
-    };
-
 });
-  

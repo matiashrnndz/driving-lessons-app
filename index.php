@@ -17,8 +17,11 @@ $smarty->assign("active_users", $activeUsers);
 session_start();
 if (isset($_SESSION['session_user'])) {
     $user = $_SESSION['session_user'];
-    $smarty->assign("user", $user);
+} else {
+    $user = null;
 }
+
+$smarty->assign("user", $user);
 
 $smarty->display("calendar.tpl");
 

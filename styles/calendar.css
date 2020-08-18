@@ -16,18 +16,8 @@ label {
   width: 100px;
 }
 
-input, select {
-  padding: 0.25rem;
-  width: 100px;
-}
-
-input {
-  text-align: center;
-  width: 65px;
-}
-
 #calendar {
-  width: 1000px;
+  width: 50vw;
   margin: 2rem auto;
 }
 
@@ -39,8 +29,8 @@ input {
 }
 
 .dates span {
-  height: 100px;
-  font-size: 16px;
+  height: 10vh;
+  font-size: 2vh;
   letter-spacing: -1px;
   border: 1px solid #e6e4e4;
   padding-right: 4px;
