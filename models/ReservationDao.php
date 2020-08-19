@@ -112,8 +112,9 @@ function getUsersReadyToConfirmLicense() {
 
     $sql = "SELECT u.usuario_id, u.email, u.nombre, u.apellido, count(*) AS cant_clases
             FROM reservas r
-                JOIN usuarios u ON u.usuario_id = r.usuario_id
+                  JOIN usuarios u ON u.usuario_id = r.usuario_id
             WHERE u.usuario_id NOT IN (SELECT usuario_id FROM libretas)
+                  AND r.fecha < CURDATE()
             GROUP BY u.usuario_id
             HAVING cant_clases >= 15;";
     
