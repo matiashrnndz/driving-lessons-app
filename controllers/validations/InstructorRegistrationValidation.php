@@ -33,9 +33,11 @@ function validateBirthday($birthday) {
     if ($birthday == null) {
         throw new InstructorRegistrationException("You must enter a birthday.");
     }
-    $birthday_aux = new DateTime($birthday);
+    $timezone = new DateTimeZone("America/Montevideo");
+    $birthday_aux = new DateTime($birthday, $timezone);
     $birthday_aux->add(new DateInterval("P18Y"));
-    if($birthday_aux >= new DateTime()) {
+    $today = new DateTime("now", $timezone);
+    if($birthday_aux >= $today) {
         throw new InstructorRegistrationException("Instructor must be 18 years or older.");
     }
 }

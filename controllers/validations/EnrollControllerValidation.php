@@ -14,8 +14,10 @@ function validateDate($date) {
     if ($date == null) {
         throw new EnrollControllerException("You must enter a date.");
     }
-    $date_aux = new DateTime($date);
-    if ($date_aux <= new DateTime()) {
+    $timezone = new DateTimeZone("America/Montevideo");
+    $date_aux = new DateTime($date, $timezone);
+    $today = new DateTime("now", $timezone);
+    if ($date_aux <= $today) {
         throw new EnrollControllerException("The date must be greater than today.");
     }
     if (date('N', strtotime($date)) >= 6) {
