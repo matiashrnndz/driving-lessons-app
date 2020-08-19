@@ -8,6 +8,7 @@ function validateInputs($reservationData) {
     validateDate($reservationData['date']);
     validateTime($reservationData['time']);
     validateInstructor($reservationData);
+    validateUser($reservationData);
 }
 
 function validateDate($date) {
@@ -32,7 +33,7 @@ function validateTime($time) {
 }
 
 function validateInstructor($reservationData) {
-    $instructorId = $reservationData[instructorId];
+    $instructorId = $reservationData['instructorId'];
     if ($instructorId == null) {
         throw new EnrollControllerException("You must select an instructor.");
     }
@@ -41,6 +42,16 @@ function validateInstructor($reservationData) {
     }
     if (existsRegistration($reservationData)) {
         throw new EnrollControllerException("The instructor is not available.");
+    }
+}
+
+function validateUser($reservationData) {
+    $userId = $reservationData['userId'];
+    if ($userId == null) {
+        throw new EnrollControllerException("You must be a registered user.");
+    }
+    if (existsRegistrationByUser($reservationData)) {
+        throw new EnrollControllerException("The user already has a class in that moment.");
     }
 }
 

@@ -15,7 +15,7 @@ function validateDate($date) {
 }
 
 function validateInstructor($reportData) {
-    $instructorId = $reportData[instructorId];
+    $instructorId = $reportData['instructorId'];
     if ($instructorId == null) {
         throw new ClassListControllerException("You must select an instructor.");
     }

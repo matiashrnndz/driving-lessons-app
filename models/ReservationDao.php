@@ -25,9 +25,9 @@ function existsRegistration($reservationData) {
     $connectionDb->conectar();
 
     $params = array(
-        array("instructorId", $reservationData[instructorId], "int"),
-        array("date", $reservationData[date], "string"),
-        array("time", $reservationData[time], "int")
+        array("instructorId", $reservationData['instructorId'], "int"),
+        array("date", $reservationData['date'], "string"),
+        array("time", $reservationData['time'], "int")
     );
     
     $sql = "SELECT *
@@ -49,13 +49,42 @@ function existsRegistration($reservationData) {
     return $reservationExists;
 }
 
+function existsRegistrationByUser($reservationData) {
+    $connectionDb = getConnection();
+    $connectionDb->conectar();
+
+    $params = array(
+        array("userId", $reservationData['userId'], "int"),
+        array("date", $reservationData['date'], "string"),
+        array("time", $reservationData['time'], "int")
+    );
+    
+    $sql = "SELECT *
+            FROM reservas
+            WHERE usuario_id = :userId
+                AND fecha = :date
+                AND hora = :time";
+    
+    $reservationExists = FALSE;
+    
+    $connectionDb->consulta($sql, $params);
+    
+    if ($connectionDb->cantidadRegistros() > 0) {
+        $reservationExists = TRUE;
+    }
+    
+    $connectionDb->desconectar();
+    
+    return $reservationExists;
+}
+
 function getReservationsByInstructorByDate($reservationData) {
     $connectionDb = getConnection();
     $connectionDb->conectar();
 
     $params = array(
-        array("instructorId", $reservationData[instructorId], "int"),
-        array("date", $reservationData[date], "string")
+        array("instructorId", $reservationData['instructorId'], "int"),
+        array("date", $reservationData['date'], "string")
     );
     
     $sql = "SELECT i.nombre, i.apellido, r.fecha, r.hora, u.nombre AS usuario_nombre, u.apellido AS usuario_apellido, u.direccion AS usuario_direccion
