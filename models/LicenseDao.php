@@ -14,7 +14,7 @@ function addLicense($usuarioId) {
     );
 
     $sql = "INSERT INTO libretas(libreta_id, fecha, usuario_id)
-            VALUES (NULL, :date, :usuarioId)";
+            VALUES (NULL, :date, :usuarioId);";
     
     $connectionDb->consulta($sql, $params);
     $connectionDb->desconectar();

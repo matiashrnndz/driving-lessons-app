@@ -15,7 +15,7 @@ function addInstructor($instructorData) {
     );
 
     $sql = "INSERT INTO instructores(instructor_id, nombre, apellido, fecha_nacimiento, ci, vencimiento)
-            VALUES (NULL, :name, :lastname, :birthday, :document, :license)";
+            VALUES (NULL, :name, :lastname, :birthday, :document, :license);";
 
     $connectionDb->consulta($sql, $params);
     $connectionDb->desconectar();

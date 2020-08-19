@@ -4,7 +4,7 @@ $(document).ready(function () {
     const $ = document.querySelector.bind(document);
     const h = tag => document.createElement(tag);
 
-    const text_labels = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+    const text_labels = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
     const labels = $('#calendar .labels');
     const dates = $('#calendar .dates');
@@ -35,7 +35,9 @@ $(document).ready(function () {
                 dspan[i].textContent = week[j] > 0 ? week[j] : '';
                 if (week[j] != '') {
                     dspan[i].id = state.year + '-' + 0+(state.month + 1) + '-' + week[j];
-                    loadColor(dspan[i].id);
+                    if (j != 0 && j != 6) {
+                        loadColor(dspan[i].id);
+                    }
                 }
                 i++;
             }

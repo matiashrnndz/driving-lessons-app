@@ -17,7 +17,7 @@ function addUser($userData) {
     );
     
     $sql = "INSERT INTO usuarios(usuario_id, email, password, nombre, apellido, ci, direccion, fecha_nacimiento, usuario_tipo_id)
-            VALUES (NULL, :email, :password, :name, :lastname, :document, :address, :birthday, 2)";
+            VALUES (NULL, :email, :password, :name, :lastname, :document, :address, :birthday, 2);";
     
     $db_connection->consulta($sql, $params);
     $db_connection->desconectar();
@@ -33,7 +33,7 @@ function getUserByEmail($email) {
     $sql = "SELECT u.usuario_id, u.email, u.password, u.nombre, u.apellido, u.ci, u.direccion, u.fecha_nacimiento, ut.descripcion
             FROM usuarios u
                 JOIN usuarios_tipos ut ON u.usuario_tipo_id = ut.usuario_tipo_id
-            WHERE email = :email";
+            WHERE email = :email;";
     
     $connectionDb->consulta($sql, $params);
     $user = $connectionDb->siguienteRegistro();
@@ -54,7 +54,7 @@ function getUsers() {
     $sql = "SELECT u.usuario_id, u.email, u.password, u.nombre, u.apellido, u.ci, u.direccion, u.fecha_nacimiento, ut.descripcion
             FROM usuarios u
                 JOIN usuarios_tipos ut ON u.usuario_tipo_id = ut.usuario_tipo_id
-            WHERE ut.descripcion = :descripcion";
+            WHERE ut.descripcion = :descripcion;";
     
     $users = null;
     
@@ -77,7 +77,7 @@ function approveUser($email) {
     
     $sql = "UPDATE usuarios
             SET usuario_tipo_id = 3
-            WHERE email = :email";
+            WHERE email = :email;";
     
     $message = 'User ' . $email . ' was approved!';
     

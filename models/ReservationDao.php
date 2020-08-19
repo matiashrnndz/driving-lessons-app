@@ -14,7 +14,7 @@ function addReservation($reservationData) {
     );
 
     $sql = "INSERT INTO reservas(reserva_id, fecha, hora, instructor_id, usuario_id)
-            VALUES (NULL, :date, :time, :instructorId, :userId)";
+            VALUES (NULL, :date, :time, :instructorId, :userId);";
     
     $connectionDb->consulta($sql, $params);
     $connectionDb->desconectar();
@@ -34,7 +34,7 @@ function existsRegistration($reservationData) {
             FROM reservas
             WHERE instructor_id = :instructorId
                 AND fecha = :date
-                AND hora = :time";
+                AND hora = :time;";
     
     $reservationExists = FALSE;
     
@@ -63,7 +63,7 @@ function existsRegistrationByUser($reservationData) {
             FROM reservas
             WHERE usuario_id = :userId
                 AND fecha = :date
-                AND hora = :time";
+                AND hora = :time;";
     
     $reservationExists = FALSE;
     
