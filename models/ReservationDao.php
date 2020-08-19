@@ -103,10 +103,12 @@ function getCountActiveUsers() {
     $connectionDb = getConnection();
     $connectionDb->conectar();
 
-    $sql = "SELECT count(*) AS active_users
-            FROM reservas
-            WHERE usuario_id NOT IN (SELECT usuario_id FROM libretas)
-            GROUP BY usuario_id;";
+    $sql = "SELECT COUNT(*) AS active_users
+            FROM (SELECT usuario_id
+                  FROM reservas
+                  WHERE usuario_id NOT IN (SELECT usuario_id FROM libretas)
+                  GROUP BY usuario_id
+            ) users;";
     
     $count = 0;
     if($connectionDb->consulta($sql)) {
