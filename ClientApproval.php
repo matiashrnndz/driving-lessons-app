@@ -1,10 +1,9 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/configs/configuration.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/UserDao.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/ReservationDao.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . 'driving-lessons/models/LicenseDao.php');
-
-ini_set("display_errors", 1);
 
 $smarty = GetSmarty();
 
@@ -14,15 +13,15 @@ $smarty->assign("users_with_license", $usersWithLicense);
 $activeUsers = getCountActiveUsers();
 $smarty->assign("active_users", $activeUsers);
 
+$users = getUsers();
+$smarty->assign("users", $users);
+
 session_start();
 if (isset($_SESSION['session_user'])) {
     $user = $_SESSION['session_user'];
-} else {
-    $user = null;
+    $smarty->assign("user", $user);
 }
 
-$smarty->assign("user", $user);
-
-$smarty->display("calendar.tpl");
+$smarty->display("client-approval.tpl");
 
 ?>

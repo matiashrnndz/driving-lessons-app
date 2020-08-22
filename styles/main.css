@@ -1,0 +1,24 @@
+
+.main {
+    position: absolute;
+    left:230px; top:92px; right:0px; bottom:0px;
+    background-color: #f1f1f1;
+    text-align: center
+}
+    
+* {
+    box-sizing: border-box;
+}
+
+.page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-content: center;
+}
+
+.page-content {
+    height: 100%;
+    width: 100%;
+    align-content: center;
+}

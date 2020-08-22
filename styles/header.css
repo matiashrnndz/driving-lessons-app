@@ -1,0 +1,64 @@
+
+.header {
+    height: 92px;
+    left: 0; right: 0; top: 0;
+    padding: 10px 10px 10px 10px;
+    position: fixed;
+    color: #eee;
+    z-index:100;
+    overflow: hidden;
+    background: #FF416C;
+    background: -webkit-linear-gradient(to bottom, #e34444, #FF416C);
+    background: linear-gradient(to bottom, #e34444, #FF416C);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 
+        0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.header a {
+    float: left;
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    color: #FFFFFF;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+}
+
+.header a:hover {
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.header a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.header-right {
+    float: right;
+}
+
+@media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .header-right {
+      float: none;
+    }
+}
