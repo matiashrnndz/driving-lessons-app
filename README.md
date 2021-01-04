@@ -1,6 +1,13 @@
 # driving-lessons-app
 
-# Manual de instalación
+## Details:
+
+- Date: Aug 2019
+- Developed by: Matias Hernández
+- Language: PHP
+- Subject: Taller de Programación
+
+## Manual de instalación
 
 Para poder completar la instalación de la aplicación, es necesario que se realicen los siguientes
 pasos en e orden que aparecen a continuación:
